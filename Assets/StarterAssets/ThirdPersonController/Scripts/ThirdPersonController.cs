@@ -402,9 +402,9 @@ namespace StarterAssets
             {
                 Rigidbody rb = other.GetComponent<Rigidbody>();
             }
-            catch
+            catch (System.Exception e)
             {
-                Debug.Log("Something went hideously wrong with the pickup destruction");
+                Debug.Log(e, this);
             }
 
             Debug.Log("collided with " + other.name);
