@@ -388,5 +388,28 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            
+        }
+
+        int pickupCount = 0;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            try
+            {
+                Rigidbody rb = other.GetComponent<Rigidbody>();
+            }
+            catch
+            {
+                Debug.Log("Something went hideously wrong with the pickup destruction");
+            }
+
+            Debug.Log("collided with " + other.name);
+            Destroy(other.gameObject);
+            pickupCount++;
+        }
     }
 }
